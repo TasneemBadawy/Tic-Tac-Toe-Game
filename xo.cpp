@@ -90,7 +90,7 @@ void logic()
 		token = (token == 'x') ? 'o' : 'x'; // Switch turn
 	}
 	else {
-		cout << " There is no empty space!\n";
+		cout << " This place isn't empty!\n";
 		logic();
 		return;
 	}
@@ -160,7 +160,7 @@ int main() {
 	}
 	gamestruct();
 	if (tie) {
-		cout << "\n It's a draw :( !\n";
+		cout << "\n It's a draw :( !\n\n";
 		
 	}
 	else if (token == 'x') {
@@ -176,7 +176,7 @@ int main() {
 
 	 } while (answer == 'y' || answer == 'Y');
 
-	 cout << "Thanks For Playing! GoodBye :) \n";
+	 cout << "\nThanks For Playing! GoodBye :) \n";
 
 	return 0;
 }

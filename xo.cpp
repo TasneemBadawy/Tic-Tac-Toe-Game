@@ -90,7 +90,7 @@ void logic()
 		token = (token == 'x') ? 'o' : 'x'; // Switch turn
 	}
 	else {
-		cout << " This place isn't empty!\n";
+		cout << "\nThis place isn't empty!\n\n";
 		logic();
 		return;
 	}
@@ -173,6 +173,7 @@ int main() {
 	}
 	cout << "Do you want to Play again :) (y/n) :";
 	     cin >> answer;
+	     cout<<"\n";
 
 	 } while (answer == 'y' || answer == 'Y');
 

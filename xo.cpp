@@ -94,7 +94,7 @@ void logic()
 		logic();
 		return;
 	}
-	//gamestruct();
+	
 
 	}
 /// set the conditions for players to win & wether the game is still going on or it's a draw
@@ -107,12 +107,13 @@ bool winlose() {
 
 			return true;
 		}
+	   }
 	     // checks the diagonals
 		if (structure[0][0] == structure[1][1] && structure[1][1] == structure[2][2] || structure[0][2] == structure[1][1] && structure[1][1] == structure[2][0]) {
 
 			return true;
 		}
-	}
+	
 	// checks if the game is still going on
 
 	for (int i = 0; i < 3; i++) {
@@ -128,29 +129,54 @@ bool winlose() {
 	tie = true;
 	return false;
 }
+// reset the gameboard
+void resetboard() {
+	char origin = '1';
+
+	for (int i = 0; i < 3; i++) {
+
+		for (int j = 0; j < 3; j++) {
+
+			structure[i][j] = origin++; //reset the elements again
+		}
+	}
+	tie = false; // reset the tie
+	token = 'x'; // reset the game to the player1
+}
+
 int main() {
 
-	    draw();
-
+	char answer;
+	draw();
+     do{
+		 resetboard();
+		
 	// keep iterating tell one of them win or the game is over
 	while (!winlose() && !tie) {
 		//outputs the structure of the game
 		gamestruct();
 		logic();
-
+		
 	}
 	gamestruct();
 	if (tie) {
 		cout << "\n It's a draw :( !\n";
-
+		
 	}
 	else if (token == 'x') {
-		cout << gamers.player2name << " WINS !, Congratulations :)\n ";
+		cout << gamers.player2name << " WINS !, Congratulations :)\n\n";
 
 	}
 	else {
-		cout << gamers.player1name << " WINS !, Congratulations :)\n ";
+		cout << gamers.player1name << " WINS !, Congratulations :)\n\n";
 
 	}
+	cout << "Do you want to Play again :) (y/n) :";
+	     cin >> answer;
+
+	 } while (answer == 'y' || answer == 'Y');
+
+	 cout << "Thanks For Playing! GoodBye :) \n";
+
 	return 0;
 }

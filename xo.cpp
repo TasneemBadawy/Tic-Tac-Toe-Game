@@ -141,7 +141,7 @@ int main() {
 	}
 	gamestruct();
 	if (tie) {
-		cout << "\n It's a drawl :( !\n";
+		cout << "\n It's a draw :( !\n";
 
 	}
 	else if (token == 'x') {
